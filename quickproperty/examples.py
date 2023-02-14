@@ -38,6 +38,22 @@ class Person2:
         print(f'{attr} was set to {value}')
         return value
 
+# with decorator and using on_get_set_kws
+class Person3:
+    name = QuickProperty('admin', name='name')
+    age = QuickProperty(0, name='age')
+    
+    def __init__(self, user, name, age):
+        self.user = user
+        self.name = name
+        self.age = age
+
+    @name.on_set
+    @age.on_set
+    def set_attr(self, value, name):
+        print(f'user {self.user} set {name} to {value}')
+        return value
+
 
 ## with decorator
 class Book:
