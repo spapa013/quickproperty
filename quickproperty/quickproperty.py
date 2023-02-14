@@ -50,7 +50,6 @@ class QuickProperty:
 
         if self.f_on_get is not None:
             if self.on_get_kws_name is not None:
-                print('got here')
                 on_get_kws = getattr(source, self.on_get_kws_name)
             elif self.on_get_kws is not None:
                 assert isinstance(self.on_get_kws, dict)
